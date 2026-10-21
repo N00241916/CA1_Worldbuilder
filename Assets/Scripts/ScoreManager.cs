@@ -3,11 +3,11 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI coinText;
+    [SerializeField] TextMeshProUGUI skullText;
 
     [Header("Level Complete")]
     [Tooltip("How many coins the player must collect to finish the level.")]
-    [SerializeField] int coinsRequired = 10;
+    [SerializeField] int skullsRequired = 7;
     [Tooltip("Panel shown when all coins are collected. Starts hidden.")]
     [SerializeField] GameObject levelCompletePanel;
 
@@ -17,7 +17,7 @@ public class ScoreManager : MonoBehaviour
     [Tooltip("How far in front of the camera the confetti appears. Keep it further than the Level Complete canvas Plane Distance, and closer than the player.")]
     [SerializeField] float confettiDistance = 1.2f;
 
-    int coins;
+    int skulls;
     bool levelComplete;
 
     void Start()
@@ -31,18 +31,18 @@ public class ScoreManager : MonoBehaviour
 
     public void IncreaseScore()
     {
-        coins++;
+        skulls++;
         UpdateText();
 
-        if (!levelComplete && coins >= coinsRequired)
-        {
-            ShowLevelComplete();
-        }
+        //if (!levelComplete && skulls >= skullsRequired)
+        //{
+        //    ShowLevelComplete();
+        //}
     }
 
     void UpdateText()
     {
-        coinText.text = "Coins: " + coins + " / " + coinsRequired;
+        skullText.text = "Skulls: " + skulls + " / " + skullsRequired;
     }
 
     void ShowLevelComplete()
