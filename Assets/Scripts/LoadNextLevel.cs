@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,10 +9,15 @@ public class LevelLoader : MonoBehaviour
 
     public void LoadNextLevel()
     {
-        // ScoreManager pauses the game when the level is complete, 
+          
+    }
 
-        // so unpause before loading 
-        Time.timeScale = 1f;
-        SceneManager.LoadScene(nextSceneName);
+    void OnTriggerEnter(Collider other)
+    {
+        if (ScoreManager.skullsCollected == true)
+        {
+            SceneManager.LoadScene(nextSceneName);
+        }
+
     }
 }
