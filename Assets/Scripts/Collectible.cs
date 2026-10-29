@@ -5,6 +5,7 @@ public class Collectible : MonoBehaviour
     [SerializeField] AudioClip collectSound;
     [SerializeField] float volume = 1f;
     [SerializeField] GameObject collectEffect;
+    [SerializeField] bool isHorse = false;
 
     ScoreManager scoreManager;
 
@@ -23,9 +24,10 @@ public class Collectible : MonoBehaviour
         if (!other.CompareTag("Player")) return;
 
         if (scoreManager != null)
-        {
-            scoreManager.IncreaseScore();
-        }
+            if (isHorse == false)
+            {
+                scoreManager.IncreaseScore();
+            }
 
         if (collectSound != null)
         {

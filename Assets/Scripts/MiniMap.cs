@@ -2,15 +2,12 @@ using UnityEngine;
 
 public class miniMap : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public float heightAbovePlayer;
+    public Transform player;
+
+    private void LateUpdate()
     {
-        
+        transform.position = new Vector3(player.position.x, player.position.y + heightAbovePlayer, player.position.z);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
